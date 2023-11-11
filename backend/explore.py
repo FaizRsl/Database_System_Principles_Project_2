@@ -44,14 +44,14 @@ def visualize_explain_query(plan):
             )
 
             while queue:
-                curr = queue.pop(0)
-                visited.append(curr)
+                current = queue.pop(0)
+                visited.append(current)
                 children = []
 
-                if "Plans" in curr:
-                    depth = curr["depth"] + 1
+                if "Plans" in current:
+                    depth = current["depth"] + 1
 
-                    for child in curr["Plans"]:
+                    for child in current["Plans"]:
                         if child not in visited:
                             child["id"] = string_unique_id(unique_id)
                             child["depth"] = depth
@@ -68,32 +68,32 @@ def visualize_explain_query(plan):
                                 depth=depth,
                             )
 
-                            graph.add_edge(curr["id"], child["id"])
+                            graph.add_edge(current["id"], child["id"])
 
                     explanation = craft_explanation_string(
-                        explanation, curr["Node Type"], children, curr["id"]
+                        explanation, current["Node Type"], children, current["id"]
                     )
 
                 # If we reach here, we are at a leaf node, add the table itself to the graph
                 else:
                     table = {}
                     table["id"] = string_unique_id(unique_id)
-                    table["depth"] = curr["depth"] + 1
+                    table["depth"] = current["depth"] + 1
                     # unique_id = chr(ord(unique_id) + 1)
                     # unique_id = get_next_unique_id(unique_id)
                     unique_id += 1
 
                     graph.add_node(
                         table["id"],
-                        node_type=curr["Relation Name"],
+                        node_type=current["Relation Name"],
                         cost=0,
                         depth=table["depth"],
                     )
 
-                    graph.add_edge(curr["id"], table["id"])
+                    graph.add_edge(current["id"], table["id"])
 
                     explanation = craft_explanation_string(
-                        explanation, curr["Node Type"], curr, curr["id"]
+                        explanation, current["Node Type"], current, current["id"]
                     )
 
             # Return graph as JSON
@@ -107,15 +107,15 @@ def visualize_explain_query(plan):
             return data, explanation
         else:
             return {}
-    except:
-        print()
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 """ #################################################################### 
 Crafts the explanation string for the graph
 #################################################################### """
 
-def craft_explanation_string(explanation, node_type, child_names, curr_name):
+def craft_explanation_string(explanation, node_type, child_names, current_name):
     try:
         explanation += node_type + " "
 
@@ -128,7 +128,7 @@ def craft_explanation_string(explanation, node_type, child_names, curr_name):
             or node_type == "Merge"
             or node_type == "Aggregate"
         ):
-            explanation += child_names[0]["id"] + " as " + curr_name + "."
+            explanation += child_names[0]["id"] + " as " + current_name + "."
         elif (
             node_type == "Hash Join"
             or node_type == "Nested Loop"
@@ -148,22 +148,22 @@ def craft_explanation_string(explanation, node_type, child_names, curr_name):
                     + " "
                     + child_names[1]["id"]
                     + " (inner) as "
-                    + curr_name
+                    + current_name
                     + "."
                 )
 
         else:
             # nodes like Materialize
             try:
-                explanation += child_names[0]["id"] + " as " + curr_name + "."
+                explanation += child_names[0]["id"] + " as " + current_name + "."
             # Relation nodes
             except:
                 explanation += (
-                    "on " + child_names["Relation Name"] + " as " + curr_name + "."
+                    "on " + child_names["Relation Name"] + " as " + current_name + "."
                 )
         return explanation
-    except:
-        print()
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 """ #################################################################### 
@@ -174,8 +174,8 @@ Generates a unique ID (running character sequence) for nodes as a string
 def string_unique_id(unique_id):
     try:
         return "T" + str(unique_id)
-    except:
-        print()
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 def dict_like_to_list(dict_like, output_type):
     try:
@@ -183,17 +183,20 @@ def dict_like_to_list(dict_like, output_type):
             output = dict_like[1:-1]
             output = output.split(",")
             cleaned_output = [float(i) for i in output]
+            
         if output_type == "integer":
             output = dict_like[1:-1]
             output = output.split(",")
             cleaned_output = [int(i) for i in output]
+            
         if output_type == "date":
             output = dict_like[1:-1]
             output = output.split(",")
             cleaned_output = [date.fromisoformat(i) for i in output]
         return cleaned_output
-    except:
-        print()
+    
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 """ #################################################################### 
@@ -204,12 +207,13 @@ used to get the datatype of the attribute
 def get_attribute_datatype(relation, attribute):
     try:
         # retrieve a histogram
-        sql_string = f"SELECT data_type FROM information_schema.columns WHERE table_name = '{relation}' AND column_name = '{attribute}';"
-        result = query(sql_string)
+        sql = f"SELECT data_type FROM information_schema.columns WHERE table_name = '{relation}' AND column_name = '{attribute}';"
+        result = query(sql)
         result = result[0]
         return result
-    except:
-        print()
+    
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 """ #################################################################### 
@@ -260,8 +264,8 @@ def get_histogram(relation, attribute, conditions):
             condition = conditions[i]
 
             # retrieve a histogram
-            sql_string = f"SELECT histogram_bounds FROM pg_stats WHERE tablename = '{relation}' AND attname = '{attribute}';"
-            result = query(sql_string)
+            sql = f"SELECT histogram_bounds FROM pg_stats WHERE tablename = '{relation}' AND attname = '{attribute}';"
+            result = query(sql)
             result = result[0]
 
             if attribute_datatype == "numeric":
@@ -344,5 +348,6 @@ def get_histogram(relation, attribute, conditions):
             return_values["conditions"][condition] = return_value
 
         return return_values
-    except:
-        print()
+    
+    except Exception as e:
+        print(f"An error occurred: {e}")
