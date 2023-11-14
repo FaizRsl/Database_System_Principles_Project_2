@@ -12,7 +12,7 @@ def connect():
             host=os.getenv("DB_HOST", "localhost"),
             database=os.getenv("DB_NAME", "TPC-H"),
             user=os.getenv("DB_USER", "postgres"),
-            password=os.getenv("DB_PASSWORD", "root"),
+            password=os.getenv("DB_PASSWORD", "postgres"),
             port=os.getenv("DB_PORT", 5432),
         )
         cur = conn.cursor()

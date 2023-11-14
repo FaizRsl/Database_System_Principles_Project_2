@@ -5,12 +5,6 @@ from datetime import date
 from networkx.readwrite import json_graph
 from database import *
 
-
-""" #################################################################### 
-Creates a graph, and a text explanation for a given query execution plan
-#################################################################### """
-
-
 def visualize_explain_query(plan):
     try:
         plan = json.loads(plan)
@@ -183,18 +177,18 @@ def dict_like_to_list(dict_like, output_type):
             output = dict_like[1:-1]
             output = output.split(",")
             cleaned_output = [float(i) for i in output]
-            
+
         if output_type == "integer":
             output = dict_like[1:-1]
             output = output.split(",")
             cleaned_output = [int(i) for i in output]
-            
+
         if output_type == "date":
             output = dict_like[1:-1]
             output = output.split(",")
             cleaned_output = [date.fromisoformat(i) for i in output]
         return cleaned_output
-    
+
     except Exception as e:
         print(f"An error occurred: {e}")
 
@@ -211,7 +205,7 @@ def get_attribute_datatype(relation, attribute):
         result = query(sql)
         result = result[0]
         return result
-    
+
     except Exception as e:
         print(f"An error occurred: {e}")
 
@@ -348,6 +342,6 @@ def get_histogram(relation, attribute, conditions):
             return_values["conditions"][condition] = return_value
 
         return return_values
-    
+
     except Exception as e:
         print(f"An error occurred: {e}")

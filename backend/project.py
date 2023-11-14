@@ -85,6 +85,7 @@ def get_plans():
                 add_qep_plan(allQEPPlans, newQep, newGraph, newExplanation, predicate_selectivity_combination, costPerRow(newQep))
 
         best_plan_id_cost = allQEPPlans[0]["estimated_cost_per_row"]
+
         best_plan_id = 0
         for plan_id in allQEPPlans:
             if plan_id != 0:
@@ -92,6 +93,10 @@ def get_plans():
                     if (allQEPPlans[plan_id]["explanation"] != allQEPPlans[0]["explanation"]):
                         best_plan_id_cost = allQEPPlans[plan_id]["estimated_cost_per_row"]
                         best_plan_id = plan_id
+
+        # debug tools
+        # with open("log.txt", "a") as log_file:
+        #     log_file.write(f"best_plan_id_cost: {best_plan_id_cost}\n\n")
 
         data = {
             "data": allQEPPlans,
