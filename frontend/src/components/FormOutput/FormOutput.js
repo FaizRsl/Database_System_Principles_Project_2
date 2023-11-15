@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
-import Info from "./Info";
 
 import PlanComparison from "../PlanComparison/PlanComparison";
 import QueryVisualizer from "../QueryVisualizer/QueryVisualizer";
@@ -160,8 +159,11 @@ const FormOutput = (props) => {
         </Form.Group>
       </Form.Row>      
       <Form.Row>
-        <Form.Group as={Col} controlId="formPlanComparison2">
-          <PlanComparison output={props.output} planId={planSelected[1]}/>
+      <Form.Group as={Col} controlId="formPlanSelector2">
+          <Form.Label><b>Select plan:</b></Form.Label>
+          <Form.Control as="select" value={planSelected[1]} onChange={(event) => {handleSelect(1, event)}}>
+            {renderAlternativeSelector()}
+          </Form.Control>
         </Form.Group>
       </Form.Row>
       <Form.Row  style={{paddingTop: '20px'}}>
@@ -179,7 +181,6 @@ const FormOutput = (props) => {
           </div>  
       </Form.Row>
       <br/> 
-      <Info/>
       <hr />
       <Form.Row>
         <Form.Group as={Col} controlId="formPlanComparison2">
