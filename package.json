@@ -3,16 +3,28 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
     "start": "concurrently \"cd ./frontend && yarn start\" \"cd ./backend && poetry run flask run\"",
     "start-api": "cd ./backend && poetry run flask run",
     "start-frontend": "cd ./frontend && yarn start"
   },
   "dependencies": {
+    "@babel/runtime": "^7.23.2",
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.1",
     "concurrently": "^8.2.2",
     "pipeline": "^0.1.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.1.3"
+    "react-redux": "^8.1.3",
+    "react-router-dom": "^6.18.0"
+  },
+  "engines": {
+    "yarn": ">=1.22.0"
   }
 }
