@@ -7493,29 +7493,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"frontend@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "frontend@workspace:."
-  dependencies:
-    "@testing-library/dom": "npm:^9.3.3"
-    "@testing-library/jest-dom": "npm:^5.11.4"
-    "@testing-library/react": "npm:^11.2.2"
-    "@testing-library/user-event": "npm:^12.1.10"
-    axios: "npm:^0.21.2"
-    buffer: "npm:^6.0.3"
-    crypto-browserify: "npm:^3.12.0"
-    dagre-d3-react: "npm:^0.2.4"
-    react: "npm:^18.2.0"
-    react-bootstrap: "npm:^1.4.0"
-    react-dom: "npm:^18.2.0"
-    react-scripts: "npm:4.0.0"
-    rimraf: "npm:^3.0.2"
-    stream-browserify: "npm:^3.0.0"
-    typescript: "npm:^5.2.2"
-    web-vitals: "npm:^0.2.4"
-  languageName: unknown
-  linkType: soft
-
 "fs-extra@npm:^7.0.0":
   version: 7.0.1
   resolution: "fs-extra@npm:7.0.1"
@@ -14495,6 +14472,29 @@ __metadata:
   checksum: ecadcfe4c771890140da5023d43e190b7566d9cf8b2d238600f31bec0fc653f328da4450eb04bd59a431771a8e9cc0e118f0aa3974b683a4981b4e07abc2a5bb
   languageName: node
   linkType: hard
+
+"sql-query-optimizer@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "sql-query-optimizer@workspace:."
+  dependencies:
+    "@testing-library/dom": "npm:^9.3.3"
+    "@testing-library/jest-dom": "npm:^5.11.4"
+    "@testing-library/react": "npm:^11.2.2"
+    "@testing-library/user-event": "npm:^12.1.10"
+    axios: "npm:^0.21.2"
+    buffer: "npm:^6.0.3"
+    crypto-browserify: "npm:^3.12.0"
+    dagre-d3-react: "npm:^0.2.4"
+    react: "npm:^18.2.0"
+    react-bootstrap: "npm:^1.4.0"
+    react-dom: "npm:^18.2.0"
+    react-scripts: "npm:4.0.0"
+    rimraf: "npm:^3.0.2"
+    stream-browserify: "npm:^3.0.0"
+    typescript: "npm:^5.2.2"
+    web-vitals: "npm:^0.2.4"
+  languageName: unknown
+  linkType: soft
 
 "ssri@npm:^10.0.0":
   version: 10.0.5

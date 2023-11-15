@@ -1,5 +1,4 @@
 const Navbar = () => {
-
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{padding: '0px', backgroundColor: '#212529', height:'6vh', width: '100%'}}>
             <div class="container-fluid">
@@ -12,5 +11,5 @@ const Navbar = () => {
    )
 
 }
-export default Navbar;
 
+export default Navbar;
