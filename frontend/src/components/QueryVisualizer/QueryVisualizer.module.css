@@ -3,24 +3,26 @@
   height: 100%;
   min-height: 500px;
   position: relative;
-  background-color: #e9ecef;
+  background-color: #404141;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  color: white;
 }
 
 .graphWrapper:hover {
   cursor: move;
 }
 
-.graphLoadingWrapper {
+.graphLoadingWrapper { /*graph section BEFORE a graph is loaded in */
   width: 100%;
   height: 100%;
   min-height: 500px;
   position: relative;
-  background-color: #e9ecef;
+  background-color: #404141;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
+  color: white;
 }
 
 .graphTooltip {

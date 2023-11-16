@@ -147,7 +147,7 @@ const Main = () => {
           <div className={styles.toastWrapper}>
             <Toast bsPrefix={styles.toastError} animation={true} autohide={true} delay={3000} onClose={() => {setShowPredicateWarning(false)}} show={showPredicateWarning}>
               <Toast.Header bsPrefix={styles.toastHeader}>Too many predicates!</Toast.Header>
-              <Toast.Body bsPrefix={styles.toastBody}>You may not select more than 4 predicates.</Toast.Body>
+              <Toast.Body bsPrefix={styles.toastBody}>You can only select up to 4 predicates.</Toast.Body>
             </Toast>
           </div>
 
@@ -157,14 +157,14 @@ const Main = () => {
                 <Spinner animation="border" size="sm" variant="light" as="span" role="status"></Spinner>
                 <Toast.Header bsPrefix={styles.toastHeader}>Loading data...</Toast.Header>
               </div>
-              <Toast.Body bsPrefix={styles.toastBody}>Please wait patiently - this could take a while.</Toast.Body>
+              <Toast.Body bsPrefix={styles.toastBody}>Please wait - this could take some time.</Toast.Body>
             </Toast>
           </div>
 
           <div className={styles.toastWrapper}>
             <Toast bsPrefix={styles.toastSuccess} animation={true} autohide={true} delay={3000} onClose={() => {setShowSuccess(false)}} show={showSuccess}>
               <Toast.Header bsPrefix={styles.toastHeader}>Success!</Toast.Header>
-              <Toast.Body bsPrefix={styles.toastBody}>Data loaded. Please see the output for the results.</Toast.Body>
+              <Toast.Body bsPrefix={styles.toastBody}>Data loaded. Please refer to output for results.</Toast.Body>
             </Toast>
           </div>
 
@@ -189,8 +189,8 @@ const Main = () => {
           <Form.Group as={Col} controlId="formPredicates">
             <Form.Label>Predicates</Form.Label>
             <Form.Text>
-              Select up to 4 predicates that are limited by a range condition in a WHERE clause in the query
-              (no equality conditions).
+              You can select up to 4 predicates that have a range condition under your query's WHERE clause
+              (do not include equality conditions).
               </Form.Text>
             <br />
             <div class="row">
@@ -322,8 +322,8 @@ const Main = () => {
             <Form.Group controlId="formQuery">
                 <Form.Label>SQL Query</Form.Label>
                 <Form.Text>
-                  Ensure that the query is properly formatted and is a valid SQL query.
-                  You can type your query across mulitple lines using the 'Enter' key. We do not support deep nesting of queries at the moment, but one level nesting is fine.
+                  Enter your query in the input box below. Make sure that your query is valid, and properly formatted in the format of an SQL query.
+                  Note that we are currently unable to support deep nested queries, please keep your queries to maximum one level of nesting.
                 </Form.Text>
                 <br />
                 <Form.Control as="textarea" rows="19" placeholder="Input SQL query here" onChange={event => setInput({...input, "query": event.target.value})} value={input.query} />
