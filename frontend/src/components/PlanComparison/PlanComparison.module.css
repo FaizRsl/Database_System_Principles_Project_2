@@ -10,6 +10,7 @@
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
   color: white;
+  min-height: 500px;
 }
 
 .attributeTableCell {

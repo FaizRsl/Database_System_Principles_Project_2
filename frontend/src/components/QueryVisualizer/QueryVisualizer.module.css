@@ -55,7 +55,7 @@
   display: block;
   float: right;
   border-radius: 0.25rem;
-  background-color: #3d2a66;
+  background-color: #3700B3;
   color: white;
   font-size: 0.8rem;
   padding: 0.2rem 0.5rem;
@@ -63,7 +63,7 @@
 }
 
 .hideTooltipButton:hover {
-  background-color: #5b428f;
+  background-color: #3700B3;
   transition: background-color 0.15s linear;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .queryNode {
-  fill: #007bff;
+  fill: rgb(255, 225, 0);
 }
 
 .queryNode:hover {
@@ -83,7 +83,7 @@
 }
 
 .queryNode text {
-  fill: white;
+  fill: navy;
 }
 
 .queryLink path {

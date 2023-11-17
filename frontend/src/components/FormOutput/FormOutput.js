@@ -111,7 +111,7 @@ const FormOutput = (props) => {
         </>
       )
     }
-    // If we have data, check what's the best plan. If it's the original, then just say it like you mean it.
+    // If we have data, check what's the best plan
     else if (props.output["bestPlanId"] === 0) {
       return (
         <>
@@ -150,7 +150,7 @@ const FormOutput = (props) => {
       <h1 className={styles.outputHeader}>QEP Analysis</h1>
       <hr />
       <br />
-      <h3 style={{ textAlign: "center", marginBottom: "1rem", color: "#BB86FC" }}>Was the original plan the best plan?</h3>
+      <h3 style={{ textAlign: "center", marginBottom: "1rem", color: "#3700B3"}}>Was the original plan the best plan?</h3>
       <Form.Row className={styles.outputMessageRow}>
         <Form.Group as={Col} controlId="formOutputMessage">
           <div className={styles.outputMessageWrapper}>
@@ -168,16 +168,16 @@ const FormOutput = (props) => {
       </Form.Row>
       <Form.Row  style={{paddingTop: '20px'}}>
           <div class="col-md-4">
-            <h3 style={{ textAlign: "center", color: "#BB86FC"}}>Query Execution Plans</h3>
-            <p style={{ textAlign: "center", color: "#3700B3" }}>Original QEP and other QEPs (if any).</p>
+            <h3 style={{ textAlign: "center", color: "#3700B3"}}>Query Execution Plans</h3>
+            <p style={{ textAlign: "center", color: "black" }}>Original QEP and other QEPs (if any).</p>
           </div>
           <div class="col-md-4">
-            <h3 style={{ textAlign: "center", color: "#BB86FC" }}>Graphs</h3>
-            <p style={{ textAlign: "center", color: "#3700B3" }}>Click on a node in the graph for more information.</p>
+            <h3 style={{ textAlign: "center", color: "#3700B3" }}>Graphs</h3>
+            <p style={{ textAlign: "center", color: "black" }}>Click on a node in the graph for more information.</p>
           </div>
           <div class="col-md-4">
-            <h3 style={{ textAlign: "center", color: "#BB86FC" }}>Explanations</h3>
-            <p style={{ textAlign: "center", color: "#3700B3" }}>Natural language explanation of the QEP</p>
+            <h3 style={{ textAlign: "center", color: "#3700B3" }}>Explanations</h3>
+            <p style={{ textAlign: "center", color: "black" }}>Natural language explanation of the QEP</p>
           </div>  
       </Form.Row>
       <br/> 

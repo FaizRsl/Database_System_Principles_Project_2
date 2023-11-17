@@ -6,6 +6,7 @@
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   color: white;
+  min-height: 500px;
 }
 
 .explanationWrapper > ol {
@@ -19,12 +20,14 @@
 .outputHeader {
   margin-bottom: 1rem;
   text-align: center;
-  color: "#BB86FC";
+  color: #3700B3;
+  background-color: #d8ecff;
+  padding: 2rem;
 }
 
 .outputMessageRow {
   margin-bottom: 1rem;
-  color: #03DAC5;
+  color: #392a63;
 }
 
 .outputMessageWrapper {
@@ -34,6 +37,8 @@
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
+  background-color: #392a63;
+  color:white;
 }
 
 .outputMessageWrapper p:last-child {

@@ -157,7 +157,7 @@ const Main = () => {
                 <Spinner animation="border" size="sm" variant="light" as="span" role="status"></Spinner>
                 <Toast.Header bsPrefix={styles.toastHeader}>Loading data...</Toast.Header>
               </div>
-              <Toast.Body bsPrefix={styles.toastBody}>Please wait - this could take some time.</Toast.Body>
+              <Toast.Body bsPrefix={styles.toastBody}>This could take some time, please wait...</Toast.Body>
             </Toast>
           </div>
 
@@ -189,7 +189,7 @@ const Main = () => {
           <Form.Group as={Col} controlId="formPredicates">
             <Form.Label>Predicates</Form.Label>
             <Form.Text>
-              You can select up to 4 predicates that have a range condition under your query's WHERE clause
+              You can select a maximum of 4 predicates that have a range condition under your query's WHERE clause
               (do not include equality conditions).
               </Form.Text>
             <br />
@@ -322,7 +322,7 @@ const Main = () => {
             <Form.Group controlId="formQuery">
                 <Form.Label>SQL Query</Form.Label>
                 <Form.Text>
-                  Enter your query in the input box below. Make sure that your query is valid, and properly formatted in the format of an SQL query.
+                  Enter your query in the input box below, click Generate, and scroll down to see the result. Make sure that your query is valid, and properly formatted in the format of an SQL query.
                   Note that we are currently unable to support deep nested queries, please keep your queries to maximum one level of nesting.
                 </Form.Text>
                 <br />
@@ -335,7 +335,7 @@ const Main = () => {
                   <Row>
                     <Col>
                     <Button onClick={ resetForm } variant="secondary" type="reset" className="w-100 mt-3">
-                    Reset
+                    Clear All
                     </Button>
                     </Col>
                     <Col>
@@ -347,8 +347,8 @@ const Main = () => {
              </div>
         </Form.Row>
       </Form>
-
       <FormOutput output={output}/>
+      
     </>
   )
 }

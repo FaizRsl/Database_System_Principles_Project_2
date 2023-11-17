@@ -1,3 +1,14 @@
+.mb-4{
+  background-color: #c4d5e5;
+  color: #3700B3;
+  padding: 3rem;
+}
+
+.col-md-3{
+  background-color: #7c94a4;
+  padding: 1rem;
+}
+
 .toastWrapper {
   position: fixed;
   z-index: 999;
@@ -53,7 +64,7 @@
 }
 
 .toastHeader button {
-  color: white;
+  color: rgb(192, 192, 192);
   opacity: 1;
   padding: 0;
   margin-top: -1px !important;
@@ -83,3 +94,4 @@
   justify-content: space-between;
   margin-bottom: 0.2rem;
 }
+
